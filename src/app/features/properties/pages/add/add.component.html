@@ -1,0 +1,104 @@
+<div class="property-form-container container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-header bg-primary text-white rounded-top-4">
+          <h3 class="mb-0">
+            <i class="bi bi-house-add me-2"></i> Add New Property
+          </h3>
+        </div>
+        <div class="card-body p-4">
+          <form (ngSubmit)="addProperty()" class="row g-3">
+            
+            <!-- Title -->
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Title</label>
+              <input [(ngModel)]="property.title" name="title" 
+                     class="form-control form-control-lg rounded-pill"
+                     placeholder="Enter property title" required>
+            </div>
+
+            <!-- Type -->
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Type</label>
+              <input [(ngModel)]="property.type" name="type" 
+                     class="form-control form-control-lg rounded-pill"
+                     placeholder="Apartment / Villa" required>
+            </div>
+
+            <!-- Price -->
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Price (₹)</label>
+              <input [(ngModel)]="property.price" type="number" name="price" 
+                     class="form-control form-control-lg rounded-pill"
+                     placeholder="Enter price" required>
+            </div>
+
+            <!-- Location -->
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Location</label>
+              <input [(ngModel)]="property.location" name="location" 
+                     class="form-control form-control-lg rounded-pill"
+                     placeholder="Enter location" required>
+            </div>
+
+            <!-- Bedrooms -->
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Bedrooms</label>
+              <input [(ngModel)]="property.bedrooms" type="number" name="bedrooms" 
+                     class="form-control form-control-lg rounded-pill"
+                     placeholder="No. of bedrooms">
+            </div>
+
+            <!-- Bathrooms -->
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Bathrooms</label>
+              <input [(ngModel)]="property.bathrooms" type="number" name="bathrooms" 
+                     class="form-control form-control-lg rounded-pill"
+                     placeholder="No. of bathrooms">
+            </div>
+
+            <!-- Area -->
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Area (sq.ft)</label>
+              <input [(ngModel)]="property.areaSqFt" type="number" name="areaSqFt" 
+                     class="form-control form-control-lg rounded-pill"
+                     placeholder="Enter area">
+            </div>
+
+            <!-- Image Upload -->
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Property Image</label>
+              <input type="file" (change)="onFileSelected($event)" 
+                     accept="image/*"
+                     class="form-control form-control-lg rounded-pill">
+              <!-- Preview -->
+              <div *ngIf="property.imageUrl" class="mt-3 text-center">
+                <img [src]="property.imageUrl" 
+                     alt="Preview" 
+                     class="img-fluid rounded shadow-sm"
+                     style="max-height: 200px; border: 2px solid #ddd;" />
+              </div>
+            </div>
+
+            <!-- Description -->
+            <div class="col-12">
+              <label class="form-label fw-semibold">Description</label>
+              <textarea [(ngModel)]="property.description" name="description"
+                        class="form-control form-control-lg"
+                        placeholder="Write a short description"
+                        rows="4"></textarea>
+            </div>
+
+            <!-- Submit -->
+            <div class="col-12 text-center">
+              <button type="submit" class="btn btn-primary btn-lg px-5 rounded-pill shadow">
+                <i class="bi bi-plus-circle me-2"></i> Add Property
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

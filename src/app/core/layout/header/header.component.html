@@ -1,0 +1,51 @@
+<header class="header shadow-sm bg-white sticky-top">
+  <nav class="navbar navbar-expand-lg container">
+    <!-- Brand -->
+    <a class="navbar-brand fw-bold text-primary" routerLink="/dashboard">
+      <i class="bi bi-house-door-fill me-2"></i> Property Selling App
+    </a>
+
+    <!-- Toggler for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navigation Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-3">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">
+            <i class="bi bi-speedometer2 me-1"></i> Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/properties/list" routerLinkActive="active">
+            <i class="bi bi-list-ul me-1"></i> View Properties
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/properties/add" routerLinkActive="active">
+            <i class="bi bi-plus-circle me-1"></i> Add Property
+          </a>
+        </li>
+
+        <!-- Login / Logout -->
+        <li class="nav-item dropdown" *ngIf="isLoggedIn">
+          <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown">
+            <i class="bi bi-person-circle me-1"></i> {{ userRole }}
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" routerLink="/profile">Profile</a></li>
+            <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+          </ul>
+        </li>
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <a class="btn btn-primary rounded-pill px-3" routerLink="/login">
+            <i class="bi bi-box-arrow-in-right me-1"></i> Login
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,91 @@
+property-selling/
+└─ src/
+   └─ app/
+      ├─ app-routing.module.ts
+      ├─ app.component.html
+      ├─ app.component.scss
+      ├─ app.component.ts
+      ├─ app.module.ts
+      │
+      ├─ core/
+      │  ├─ layout/
+      │  │  ├─ header/
+      │  │  │  ├─ header.component.html
+      │  │  │  ├─ header.component.scss
+      │  │  │  └─ header.component.ts
+      │  │  ├─ navbar/
+      │  │  │  ├─ navbar.component.html
+      │  │  │  ├─ navbar.component.scss
+      │  │  │  └─ navbar.component.ts
+      │  │  ├─ footer/
+      │  │  │  ├─ footer.component.html
+      │  │  │  ├─ footer.component.scss
+      │  │  │  └─ footer.component.ts
+      │  │  └─ shell/
+      │  │     ├─ shell.component.html
+      │  │     ├─ shell.component.scss
+      │  │     └─ shell.component.ts
+      │  │
+      │  ├─ models/
+      │  │  └─ property.model.ts
+      │  │
+      │  └─ services/
+      │     └─ property.service.ts
+      │
+      ├─ shared/
+      │  └─ components/
+      │     └─ property-card/
+      │        ├─ property-card.component.html
+      │        ├─ property-card.component.scss
+      │        └─ property-card.component.ts
+      │
+      └─ features/
+         └─ properties/
+            ├─ properties-routing.module.ts
+            ├─ properties.module.ts
+            └─ pages/
+               ├─ dashboard/
+               │  ├─ dashboard.component.html
+               │  ├─ dashboard.component.scss
+               │  └─ dashboard.component.ts
+               ├─ list/
+               │  ├─ list.component.html
+               │  ├─ list.component.scss
+               │  └─ list.component.ts
+               ├─ detail/
+               │  ├─ detail.component.html
+               │  ├─ detail.component.scss
+               │  └─ detail.component.ts
+               └─ add/
+                  ├─ add.component.html
+                  ├─ add.component.scss
+                  └─ add.component.ts
+   │
+   ├─ assets/
+   │  └─ images/
+   │     └─ placeholder-house.jpg
+   │
+   ├─ environments/
+   │  ├─ environment.ts
+   │  └─ environment.prod.ts
+   │
+   ├─ index.html
+   ├─ main.ts
+   └─ styles.scss
+
+
+
+features/
+└─ auth/
+   ├─ pages/
+   │  ├─ login/
+   │  │  ├─ login.component.ts
+   │  │  ├─ login.component.html
+   │  │  └─ login.component.css
+   │  └─ register/
+   │     ├─ register.component.ts
+   │     ├─ register.component.html
+   │     └─ register.component.css
+   ├─ auth.module.ts
+   └─ auth-routing.module.ts
+

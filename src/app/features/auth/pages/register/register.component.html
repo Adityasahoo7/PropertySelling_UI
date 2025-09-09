@@ -1,0 +1,18 @@
+<!-- src/app/features/auth/pages/register/register.component.html -->
+<div class="register-container">
+  <h2>Register</h2>
+  <form (ngSubmit)="register()">
+    <input type="text" [(ngModel)]="fullName" name="fullName" placeholder="Full Name" required />
+    <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required />
+    <input type="password" [(ngModel)]="password" name="password" placeholder="Password" required />
+
+    <label for="role">Select Role</label>
+    <select id="role" [(ngModel)]="role" name="role" required>
+      <option value="Buyer">Buyer</option>
+      <option value="Seller">Seller</option>
+    </select>
+
+    <button type="submit">Register</button>
+    <p class="error" *ngIf="errorMsg">{{ errorMsg }}</p>
+  </form>
+</div>

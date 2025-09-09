@@ -1,0 +1,23 @@
+<!-- src/app/app.component.html -->
+<!-- <app-shell></app-shell> -->
+
+<!-- <p>Hello Aditya</p> -->
+<!-- src/app/app.component.html -->
+
+
+
+<!-- <app-header></app-header> -->
+<!-- <app-navbar></app-navbar> -->
+
+<!-- Page content (routing) -->
+<!-- <router-outlet></router-outlet>
+
+<app-footer></app-footer> -->
+
+<!-- Show header/footer only if not in auth pages -->
+<app-header *ngIf="showLayout()"></app-header>
+
+<router-outlet></router-outlet>
+
+<app-footer *ngIf="showLayout()"></app-footer>
+
