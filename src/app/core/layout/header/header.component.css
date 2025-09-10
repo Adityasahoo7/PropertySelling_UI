@@ -1,78 +1,43 @@
-.header {
-  background: #ffffff;
-  transition: all 0.3s ease;
-  z-index: 1050;
+/* Navbar brand */
+.navbar .brand-text {
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
 }
 
-.navbar-brand {
-  font-size: 1.5rem;
-}
-
-/* Nav links */
-.navbar-nav .nav-link {
+/* Nav Links */
+.navbar .nav-link {
   font-weight: 500;
-  position: relative;
-  transition: color 0.3s ease;
-  padding: 0.5rem 0.75rem;
-}
-
-.navbar-nav .nav-link::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  background: #0d6efd;
-  left: 0;
-  bottom: 0;
-  transition: width 0.3s ease;
-}
-
-.navbar-nav .nav-link:hover::after {
-  width: 100%;
-}
-
-.navbar-nav .nav-link.active {
-  color: #0d6efd;
-  font-weight: 600;
-}
-
-/* Buttons */
-.btn-primary {
+  color: #333;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(13,110,253,0.3);
+  border-radius: 8px;
+  padding: 6px 12px;
 }
 
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(13,110,253,0.4);
-}
-
-/* Dropdown menu */
-.dropdown-menu {
-  border-radius: 0.8rem;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-}
-
-.dropdown-menu .dropdown-item:hover {
-  background-color: #f0f8ff;
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  background: #f0f6ff;
   color: #0d6efd;
 }
 
-/* Toggler */
-.navbar-toggler {
+/* Login Button Gradient */
+.btn-gradient {
+  background: linear-gradient(135deg, #0d6efd, #4f9cff);
+  color: #fff;
+  font-weight: 600;
   border: none;
 }
 
-.navbar-toggler-icon {
-  filter: invert(50%);
+.btn-gradient:hover {
+  background: linear-gradient(135deg, #0b5ed7, #357ecf);
+  color: #fff;
 }
 
-/* Responsive adjustments */
-@media (max-width: 992px) {
-  .navbar-nav .nav-link,
-  .navbar-nav .btn-primary {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 0.5rem;
-  }
+/* Dropdown */
+.dropdown-menu {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
 }

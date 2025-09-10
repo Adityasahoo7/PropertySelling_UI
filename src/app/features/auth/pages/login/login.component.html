@@ -1,10 +1,26 @@
-<div class="login-form">
-  <h2>Login</h2>
-  <form (ngSubmit)="login()">
-    <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required />
-    <input type="password" [(ngModel)]="password" name="password" placeholder="Password" required />
-    <button type="submit">Login</button>
-  </form>
-  <p class="error" *ngIf="errorMsg">{{ errorMsg }}</p>
-  <p>Don't have an account? <a routerLink="/auth/register">Register</a></p>
+<div class="login-container">
+  <div class="login-card">
+    <h2>Welcome to Property Selling</h2>
+    <form (ngSubmit)="login()">
+      <div class="input-group">
+        <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required />
+      </div>
+      <div class="input-group">
+        <input type="password" [(ngModel)]="password" name="password" placeholder="Password" required />
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <p class="error" *ngIf="errorMsg">{{ errorMsg }}</p>
+    <p class="register-link">Don't have an account? <a routerLink="/auth/register">Register</a></p>
+  </div>
+
+  <div class="background-shapes">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span class="triangle"></span>
+    <span class="triangle"></span>
+  </div>
 </div>

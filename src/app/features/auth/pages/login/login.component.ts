@@ -16,20 +16,36 @@ password: string = '';
 
   constructor(private authService: AuthService, private router: Router) {}
 
+  // login() {
+  //   const credentials = { email: this.email, password: this.password };
+
+  //   this.authService.login(credentials).subscribe({
+  //     next: (res) => {
+  //       // 🔹 Save token & role
+  //       this.authService.saveAuthData(res.token, res.role);
+
+  //       // ✅ Redirect to properties dashboard
+  //       this.router.navigate(['/properties']);
+  //     },
+  //     error: () => {
+  //       this.errorMsg = '❌ Invalid email or password';
+  //     }
+  //   });
+  // }
+
   login() {
-    const credentials = { email: this.email, password: this.password };
+  const credentials = { email: this.email, password: this.password };
 
-    this.authService.login(credentials).subscribe({
-      next: (res) => {
-        // 🔹 Save token & role
-        this.authService.saveAuthData(res.token, res.role);
+  this.authService.login(credentials).subscribe({
+    next: (res) => {
+      localStorage.setItem('token', res.token);
+      localStorage.setItem('role', res.role);
+      this.router.navigate(['/dashboard']);   // ✅ Router call component re
+    },
+    error: () => {
+      this.errorMsg = '❌ Invalid login. Please try again.';
+    }
+  });
+}
 
-        // ✅ Redirect to properties dashboard
-        this.router.navigate(['/properties']);
-      },
-      error: () => {
-        this.errorMsg = '❌ Invalid email or password';
-      }
-    });
-  }
 }

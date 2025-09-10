@@ -1,0 +1,184 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.register-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #56ab2f, #a8e063); /* Greenish gradient */
+  overflow: hidden;
+}
+
+/* Floating circular shapes */
+.background-shapes span {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  animation: float 25s linear infinite;
+}
+
+.background-shapes span:nth-child(1) { width: 120px; height: 120px; top: 5%; left: 10%; animation-duration: 22s; }
+.background-shapes span:nth-child(2) { width: 180px; height: 180px; top: 30%; left: 75%; animation-duration: 18s; }
+.background-shapes span:nth-child(3) { width: 100px; height: 100px; top: 50%; left: 40%; animation-duration: 20s; }
+.background-shapes span:nth-child(4) { width: 150px; height: 150px; top: 70%; left: 20%; animation-duration: 24s; }
+.background-shapes span:nth-child(5) { width: 130px; height: 130px; top: 50%; left: 70%; animation-duration: 23s; }
+
+/* Triangles for extra design */
+.background-shapes span.triangle {
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 60px solid rgba(255,255,255,0.15);
+  border-radius: 4px;
+}
+
+.background-shapes span.triangle:nth-child(6) { top: 20%; left: 50%; animation-duration: 21s; }
+.background-shapes span.triangle:nth-child(7) { top: 65%; left: 60%; animation-duration: 19s; }
+
+/* Soft wave at bottom */
+.register-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50% 50% 0 0;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-25px) translateX(25px); }
+}
+
+/* Register card */
+.register-card {
+  background: #fff;
+  padding: 45px 35px;
+  border-radius: 25px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+  width: 400px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.register-card h2 {
+  margin-bottom: 30px;
+  color: #333;
+  font-weight: 700;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #555;
+}
+
+.input-group input, .input-group select {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.input-group input:focus, .input-group select:focus {
+  border-color: #56ab2f;
+  box-shadow: 0 0 8px rgba(86,171,47,0.5);
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: #56ab2f;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #a8e063;
+}
+
+.error {
+  color: #ff4d4f;
+  margin-top: 10px;
+}
+
+.login-link {
+  margin-top: 18px;
+  font-size: 14px;
+}
+
+.login-link a {
+  color: #56ab2f;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+.input-group input, .input-group select {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+/* Hover effect */
+.input-group input:hover, .input-group select:hover {
+  border-color: #3a8e41;
+  box-shadow: 0 0 8px rgba(58,142,65,0.3);
+}
+
+/* Focus effect */
+.input-group input:focus, .input-group select:focus {
+  border-color: #56ab2f;
+  box-shadow: 0 0 12px rgba(86,171,47,0.5);
+  outline: none;
+}
+
+/* Optional: subtle top glow line */
+.input-group input:focus::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, #56ab2f, #a8e063);
+  border-radius: 2px;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  0% { opacity: 0.2; }
+  100% { opacity: 1; }
+}

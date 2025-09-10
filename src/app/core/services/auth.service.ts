@@ -45,7 +45,8 @@ export class AuthService {
   }
 
   // ✅ Get role
-  getUserRole(): string | null {
-    return localStorage.getItem('role');
-  }
+  getUserRole(): string {
+  return localStorage.getItem('role') ?? 'User';
+}
+
 }
