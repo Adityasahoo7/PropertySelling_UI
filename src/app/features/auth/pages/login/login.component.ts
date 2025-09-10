@@ -38,9 +38,10 @@ password: string = '';
 
   this.authService.login(credentials).subscribe({
     next: (res) => {
-      localStorage.setItem('token', res.token);
-      localStorage.setItem('role', res.role);
-      this.router.navigate(['/dashboard']);   // ✅ Router call component re
+       this.authService.saveAuthData(res.token, res.role, res.fullName);
+
+      this.router.navigate(['/properties/dashboard']);
+   // ✅ Router call component re
     },
     error: () => {
       this.errorMsg = '❌ Invalid login. Please try again.';

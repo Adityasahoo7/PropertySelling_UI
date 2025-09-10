@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';   // ✅ FIX path
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -8,19 +8,29 @@ import { AuthService } from '../../services/auth.service';   // ✅ FIX path
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  isLoggedIn: boolean = false;
-  userRole: string = '';
+  isLoggedIn = false;
+  userName = '';
+  userRole = '';
 
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
+    this.loadUserData();
+  }
+
+  loadUserData(): void {
     this.isLoggedIn = this.authService.isLoggedIn();
-    this.userRole = this.authService.getUserRole();
+    if (this.isLoggedIn) {
+      this.userName = this.authService.getUserName();
+      this.userRole = this.authService.getUserRole();
+    }
   }
 
   logout(): void {
     this.authService.logout();
     this.isLoggedIn = false;
-    this.router.navigate(['/login']);
+    this.userName = '';
+    this.userRole = '';
+    this.router.navigate(['/auth/login']);
   }
 }

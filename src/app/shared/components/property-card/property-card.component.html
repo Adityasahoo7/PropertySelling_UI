@@ -12,9 +12,10 @@
     <p class="price text-success fw-semibold mb-1">₹ {{ property.price | number }}</p>
     <p class="location text-secondary mb-3"><i class="bi bi-geo-alt-fill me-1"></i>{{ property.location }}</p>
 
-    <a [routerLink]="['/properties', property.id]" 
-       class="btn btn-primary mt-auto rounded-pill shadow-sm">
-      <i class="bi bi-eye me-1"></i> View Details
-    </a>
+    <a [routerLink]="['/properties/detail', property.id]" 
+   class="btn btn-primary mt-auto rounded-pill shadow-sm">
+  <i class="bi bi-eye me-1"></i> View Details
+</a>
+
   </div>
 </div>
