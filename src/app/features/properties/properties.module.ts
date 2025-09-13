@@ -9,13 +9,15 @@ import { ListComponent } from './pages/list/list.component';
 import { DetailComponent } from './pages/detail/detail.component';
 import { AddComponent } from './pages/add/add.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     ListComponent,
     DetailComponent,
-    AddComponent
+    AddComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

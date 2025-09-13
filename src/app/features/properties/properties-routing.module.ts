@@ -4,12 +4,14 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ListComponent } from './pages/list/list.component';
 import { DetailComponent } from './pages/detail/detail.component';
 import { AddComponent } from './pages/add/add.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'list', component: ListComponent },
   { path: 'detail/:id', component: DetailComponent },
-  { path: 'add', component: AddComponent }
+  { path: 'add', component: AddComponent },
+  { path: 'profile',component:ProfileComponent}
 ];
 
 @NgModule({

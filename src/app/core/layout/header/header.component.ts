@@ -26,11 +26,18 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  logout(): void {
-    this.authService.logout();
+ logout() {
+    // Clear session/localStorage
+    localStorage.removeItem('token');
+    localStorage.removeItem('userName');
+    localStorage.removeItem('userRole');
+
+    // Update state
     this.isLoggedIn = false;
     this.userName = '';
     this.userRole = '';
+
+    // Redirect to login page
     this.router.navigate(['/auth/login']);
   }
 }

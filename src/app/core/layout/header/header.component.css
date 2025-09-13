@@ -1,43 +1,68 @@
-/* Navbar brand */
-.navbar .brand-text {
-  font-size: 1.2rem;
-  letter-spacing: 0.5px;
+.custom-header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Nav Links */
-.navbar .nav-link {
-  font-weight: 500;
+.brand-text {
+  font-size: 1.3rem;
   color: #333;
-  transition: all 0.3s ease;
-  border-radius: 8px;
-  padding: 6px 12px;
 }
 
-.navbar .nav-link:hover,
-.navbar .nav-link.active {
-  background: #f0f6ff;
-  color: #0d6efd;
+.text-gradient {
+  background: linear-gradient(45deg, #42a5f5, #1976d2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Login Button Gradient */
+.nav-link {
+  color: #555;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #1976d2;
+  transform: translateY(-2px);
+}
+
 .btn-gradient {
-  background: linear-gradient(135deg, #0d6efd, #4f9cff);
+  background: linear-gradient(45deg, #42a5f5, #1976d2);
   color: #fff;
-  font-weight: 600;
+  font-weight: 500;
   border: none;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .btn-gradient:hover {
-  background: linear-gradient(135deg, #0b5ed7, #357ecf);
-  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(66, 165, 245, 0.3);
 }
 
-/* Dropdown */
 .dropdown-menu {
-  animation: fadeIn 0.2s ease-in-out;
+  padding: 10px 0;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(5px); }
-  to { opacity: 1; transform: translateY(0); }
+.dropdown-item {
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f5f5f5;
+  color: #1976d2;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%231976d2' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(25, 118, 210, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+@media (max-width: 992px) {
+  .nav-link {
+    padding-left: 10px;
+  }
 }

@@ -40,6 +40,8 @@ password: string = '';
     next: (res) => {
        this.authService.saveAuthData(res.token, res.role, res.fullName);
 
+       localStorage.setItem('email', res.email);
+
       this.router.navigate(['/properties/dashboard']);
    // ✅ Router call component re
     },
