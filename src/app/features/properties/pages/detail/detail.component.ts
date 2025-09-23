@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { PropertyService } from 'src/app/core/services/property.service';
 import { Property } from 'src/app/core/models/property.model';
 
@@ -13,6 +13,7 @@ export class DetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+      private router: Router,
     private propertyService: PropertyService
   ) {}
 
@@ -23,5 +24,21 @@ export class DetailComponent implements OnInit {
         next: (data) => (this.property = data)
       });
     }
+  }
+
+  
+  deleteProperty(id: number) {
+    if (!confirm('Are you sure you want to delete this property?')) return;
+
+    this.propertyService.deleteProperty(id).subscribe({
+      next: () => {
+        alert('Property deleted successfully!');
+        this.router.navigate(['/properties/dashboard']);
+      },
+      error: (err) => {
+        console.error(err);
+        alert('Failed to delete property.');
+      },
+    });
   }
 }

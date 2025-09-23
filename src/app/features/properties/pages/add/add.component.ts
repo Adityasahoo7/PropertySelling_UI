@@ -1,6 +1,7 @@
   import { Component } from '@angular/core';
   import { PropertyService } from 'src/app/core/services/property.service';
   import { Property } from 'src/app/core/models/property.model';
+  import { ActivatedRoute,Router } from '@angular/router';
 
   @Component({
     selector: 'app-add',
@@ -21,7 +22,9 @@
       imageUrl: ''
     };
 
-    constructor(private propertyService: PropertyService) {}
+    constructor(private propertyService: PropertyService,
+      private router:Router
+    ) {}
 
     // 🖼 File Upload → Save Base64 in imageUrl
     onFileSelected(event: any) {
@@ -46,6 +49,9 @@
         next: (res) => {
           console.log("✅ Property added:", res);
           alert("✅ Property added successfully!");
+       
+        this.router.navigate(['/properties/dashboard']);
+  
 
           // Reset form
           this.property = {

@@ -60,6 +60,11 @@
   [routerLink]="['/properties/dashboard']">
   <i class="bi bi-arrow-left me-2"></i> Back to Listings
 </button>
+ <button
+    class="btn btn-danger btn-lg rounded-pill shadow-sm"
+    (click)="deleteProperty(property.id!)">
+    <i class="bi bi-trash me-2"></i> Delete Property
+  </button>
 
       </div>
     </div>

@@ -42,3 +42,28 @@
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(13,110,253,0.4);
 }
+/* Property card */
+.property-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Image area fixed height */
+.property-card .property-image {
+  height: 200px; /* fixed height for all images */
+  overflow: hidden;
+}
+
+.property-card .property-image img {
+  object-fit: cover; /* image covers the div without distortion */
+  height: 100%;
+  width: 100%;
+}
+
+/* Ensure card-body stretches to bottom */
+.property-card .card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
