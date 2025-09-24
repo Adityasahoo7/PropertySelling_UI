@@ -1,6 +1,5 @@
-// src/app/features/properties/services/visit-request.service.ts
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface VisitRequestCreate {
@@ -12,12 +11,12 @@ export interface VisitRequestResponse {
   propertyId: number;
   propertyTitle: string;
   buyerName: string;
-  status: string;
+  status: number;
   requestedAt: string;
 }
 
 export interface VisitRequestUpdateStatus {
-  status: string;
+  status: number;
 }
 
 @Injectable({
@@ -28,19 +27,27 @@ export class VisitRequestService {
 
   constructor(private http: HttpClient) { }
 
+  private getAuthHeaders(): HttpHeaders {
+    const token = localStorage.getItem('token'); // JWT token store kari thile
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+  }
+
   create(request: VisitRequestCreate): Observable<number> {
-    return this.http.post<number>(this.apiUrl, request);
+    return this.http.post<number>(this.apiUrl, request, { headers: this.getAuthHeaders() });
   }
 
   getForBuyer(): Observable<VisitRequestResponse[]> {
-    return this.http.get<VisitRequestResponse[]>(`${this.apiUrl}/buyer`);
+    return this.http.get<VisitRequestResponse[]>(`${this.apiUrl}/buyer`, { headers: this.getAuthHeaders() });
   }
 
   getForSeller(): Observable<VisitRequestResponse[]> {
-    return this.http.get<VisitRequestResponse[]>(`${this.apiUrl}/seller`);
+    return this.http.get<VisitRequestResponse[]>(`${this.apiUrl}/seller`, { headers: this.getAuthHeaders() });
   }
 
   updateStatus(id: number, status: VisitRequestUpdateStatus): Observable<void> {
-    return this.http.patch<void>(`${this.apiUrl}/${id}/status`, status);
+    return this.http.patch<void>(`${this.apiUrl}/${id}/status`, status, { headers: this.getAuthHeaders() });
   }
 }

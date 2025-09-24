@@ -1,0 +1,30 @@
+<div class="container py-5">
+  <h3>Visit Requests for My Properties</h3>
+  <table class="table table-bordered mt-3">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Buyer</th>
+        <th>Status</th>
+        <th>Requested At</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let req of requests">
+        <td>{{ req.propertyTitle }}</td>
+        <td>{{ req.buyerName }}</td>
+        <td>{{ req.status }}</td>
+        <td>{{ req.requestedAt | date:'short' }}</td>
+        <td>
+          <button class="btn btn-success btn-sm me-1" 
+        (click)="updateStatus(req.id, 'Approved')">Approve</button>
+
+<button class="btn btn-danger btn-sm" 
+        (click)="updateStatus(req.id, 'Rejected')">Reject</button>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

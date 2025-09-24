@@ -13,6 +13,10 @@ import { LoginComponent } from './features/auth/pages/login/login.component';
 import { RegisterComponent } from './features/auth/pages/register/register.component';
 //import { PropertyCardComponent } from './shared/components/property-card/property-card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { JwtInterceptor } from './core/interceptors/jwt.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +33,9 @@ import { HttpClientModule } from '@angular/common/http';
      HttpClientModule,
      FormsModule
   ],
-  providers: [],
+  providers: [
+      { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

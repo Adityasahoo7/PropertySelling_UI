@@ -10,6 +10,8 @@ import { DetailComponent } from './pages/detail/detail.component';
 import { AddComponent } from './pages/add/add.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { VisitRequestComponent } from './pages/visit-request/visit-request.component';
+import { VisitRequestSellerComponent } from './pages/visit-request-seller/visit-request-seller.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ProfileComponent } from './pages/profile/profile.component';
     ListComponent,
     DetailComponent,
     AddComponent,
-    ProfileComponent
+    ProfileComponent,
+    VisitRequestComponent,
+    VisitRequestSellerComponent
   ],
   imports: [
     CommonModule,

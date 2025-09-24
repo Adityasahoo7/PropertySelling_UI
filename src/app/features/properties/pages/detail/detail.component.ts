@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
 import { PropertyService } from 'src/app/core/services/property.service';
 import { Property } from 'src/app/core/models/property.model';
+import { VisitRequestService } from 'src/app/core/services/visit-request.service';
 
 @Component({
   selector: 'app-detail',
@@ -14,6 +15,7 @@ export class DetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
       private router: Router,
+      private visitService: VisitRequestService,
     private propertyService: PropertyService
   ) {}
 
@@ -41,4 +43,18 @@ export class DetailComponent implements OnInit {
       },
     });
   }
+
+requestVisit(propertyId?: number) {
+  if (!propertyId) return; // undefined check
+
+  this.visitService.create({ propertyId }).subscribe({
+    next: () => alert('Visit request sent successfully!'),
+    error: err => {
+      const message = err.error?.message || err.statusText || 'Unknown error';
+      alert('Error sending request: ' + message);
+    }
+  });
+}
+
+
 }

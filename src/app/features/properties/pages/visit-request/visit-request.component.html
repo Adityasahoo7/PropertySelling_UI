@@ -1,0 +1,20 @@
+<!-- src/app/features/properties/pages/visit-request/visit-request.component.html -->
+<div class="container py-5">
+  <h3>My Visit Requests</h3>
+  <table class="table table-striped mt-3">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Status</th>
+        <th>Requested At</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let req of requests">
+        <td>{{ req.propertyTitle }}</td>
+        <td>{{ req.status }}</td>
+        <td>{{ req.requestedAt | date:'short' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
