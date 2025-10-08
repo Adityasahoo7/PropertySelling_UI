@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <h3>Search results for "{{ query }}"</h3>
+
+  <div *ngIf="loading" class="text-center mt-3">
+    <p>Loading...</p>
+  </div>
+
+  <div *ngIf="noResults && !loading" class="alert alert-warning mt-3">
+    No properties found.
+  </div>
+
+  <div class="row mt-4" *ngIf="!loading">
+    <div *ngFor="let property of properties" class="col-md-4 mb-3">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ property.title }}</h5>
+          <p class="card-text">
+            Location: {{ property.location }} <br>
+            Price: ₹{{ property.price }}
+          </p>
+          <a [routerLink]="['/properties/detail', property.id]" class="btn btn-primary btn-sm">
+            View Details
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

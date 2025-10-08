@@ -12,6 +12,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { VisitRequestComponent } from './pages/visit-request/visit-request.component';
 import { VisitRequestSellerComponent } from './pages/visit-request-seller/visit-request-seller.component';
+import { SearchResultsComponent } from './pages/search-results/search-results.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { VisitRequestSellerComponent } from './pages/visit-request-seller/visit-
     AddComponent,
     ProfileComponent,
     VisitRequestComponent,
-    VisitRequestSellerComponent
+    VisitRequestSellerComponent,
+    SearchResultsComponent
   ],
   imports: [
     CommonModule,

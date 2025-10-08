@@ -6,12 +6,28 @@
       <span class="brand-text">Property Selling App</span>
     </a>
 
+
+
     <!-- Toggler -->
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
+
+
+    
+    <!-- 🔎 Search bar -->
+  <form class="d-flex ms-auto" (ngSubmit)="onSearch()">
+    <input class="form-control me-2"
+           type="search"
+           placeholder="Search properties..."
+           [(ngModel)]="searchTerm"
+           name="search" />
+    <button class="btn btn-outline-primary" type="submit">Search</button>
+  </form>
+
+  
     <!-- Links -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto align-items-lg-center gap-2">
@@ -25,7 +41,7 @@
             <i class="bi bi-list-ul me-1"></i> View Properties
           </a>
         </li>
-        <li class="nav-item" *ngIf="userRole == 'Seller' || userRole == 'Admin'">
+        <li class="nav-item" *ngIf="userRole == 'Seller' || userRole == 'Admin'"   >
           <a class="nav-link" routerLink="/properties/add" routerLinkActive="active">
             <i class="bi bi-plus-circle me-1"></i> Add Property
           </a>

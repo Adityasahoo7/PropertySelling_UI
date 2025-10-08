@@ -44,6 +44,10 @@ export class PropertyService {
     return this.http.delete<void>(`${this.propertyUrl}/${id}`, { headers: this.getAuthHeaders() });
   }
 
+  searchProperties(query: string): Observable<Property[]> {
+  return this.http.get<Property[]>(`${this.propertyUrl}/search?q=${query}`);
+}
+
   // ================= VisitRequest API =================
   addVisitRequest(visitRequest: { propertyId: number; status: string }): Observable<any> {
     return this.http.post<any>(this.visitRequestUrl, visitRequest, { headers: this.getAuthHeaders() });

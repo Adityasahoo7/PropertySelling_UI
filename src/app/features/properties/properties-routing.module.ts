@@ -7,6 +7,7 @@ import { AddComponent } from './pages/add/add.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { VisitRequestComponent } from './pages/visit-request/visit-request.component';
 import { VisitRequestSellerComponent } from './pages/visit-request-seller/visit-request-seller.component';
+import { SearchResultsComponent } from './pages/search-results/search-results.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -16,6 +17,8 @@ const routes: Routes = [
   { path: 'profile',component:ProfileComponent},
    { path: 'visit-requests/buyer', component: VisitRequestComponent },
   { path: 'visit-requests/seller', component: VisitRequestSellerComponent },
+   // { path: 'properties/search', component: SearchResultsComponent },
+    { path: 'search', component: SearchResultsComponent },
 ];
 
 @NgModule({

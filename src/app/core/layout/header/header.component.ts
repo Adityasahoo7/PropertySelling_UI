@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit {
   isLoggedIn = false;
   userName = '';
   userRole = '';
+  searchTerm: string = '';
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -19,6 +20,11 @@ export class HeaderComponent implements OnInit {
     this.loadUserData();
   }
 
+  onSearch() {
+  if (this.searchTerm.trim()) {
+    this.router.navigate(['properties/search'], { queryParams: { q: this.searchTerm } });
+  }
+}
   loadUserData(): void {
     this.isLoggedIn = this.authService.isLoggedIn();
     if (this.isLoggedIn) {
