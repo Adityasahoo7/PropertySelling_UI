@@ -13,6 +13,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { VisitRequestComponent } from './pages/visit-request/visit-request.component';
 import { VisitRequestSellerComponent } from './pages/visit-request-seller/visit-request-seller.component';
 import { SearchResultsComponent } from './pages/search-results/search-results.component';
+import { ChatbotComponent } from './pages/chatbot/chatbot.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SearchResultsComponent } from './pages/search-results/search-results.co
     ProfileComponent,
     VisitRequestComponent,
     VisitRequestSellerComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    ChatbotComponent
   ],
   imports: [
     CommonModule,

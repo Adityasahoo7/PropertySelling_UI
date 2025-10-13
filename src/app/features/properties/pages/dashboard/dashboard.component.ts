@@ -9,12 +9,19 @@ import { Property } from 'src/app/core/models/property.model';
 })
 export class DashboardComponent implements OnInit {
   properties: Property[] = [];
+    isChatOpen = false;
 
   constructor(private propertyService: PropertyService) {}
 
   ngOnInit(): void {
     this.loadProperties();
   }
+
+
+toggleChat() {
+  this.isChatOpen = !this.isChatOpen;
+}
+
 
   loadProperties() {
     this.propertyService.getProperties().subscribe({

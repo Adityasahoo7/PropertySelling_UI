@@ -11,6 +11,7 @@ export class PropertyService {
   private propertyUrl = 'http://localhost:5118/api/Property';
   private visitRequestUrl = 'http://localhost:5118/api/VisitRequest';
   private authUrl = 'http://localhost:5118/api/Auth';
+    private chatUrl = 'http://localhost:5118/api/Chat/ask';
 
   constructor(private http: HttpClient) {}
 
@@ -63,6 +64,12 @@ export class PropertyService {
 
   updateVisitRequestStatus(id: number, status: string): Observable<any> {
     return this.http.patch<any>(`${this.visitRequestUrl}/${id}/status`, { status }, { headers: this.getAuthHeaders() });
+  }
+
+
+   // =================  New Chatbot method=================
+  sendChatMessage(message: string): Observable<any> {
+    return this.http.post<any>(`${this.chatUrl}`, { message });
   }
 
   // ================= Auth API =================

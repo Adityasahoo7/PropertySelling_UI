@@ -32,3 +32,52 @@
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* Chatbot */
+:host {
+  /* make sure host doesn't limit overlay */
+  position: relative;
+}
+.ai-chat-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 80px;               /* increased size */
+  height: 80px;              /* increased size */
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  z-index: 1000;
+  background: radial-gradient(circle at 30% 30%, #ff00cc, #3333ff, #00ffff);
+  box-shadow:
+    0 0 20px rgba(255, 0, 204, 0.6),
+    0 0 40px rgba(0, 255, 255, 0.4),
+    0 0 60px rgba(51, 51, 255, 0.3);
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.ai-chat-btn:hover {
+  transform: scale(1.1);
+  box-shadow:
+    0 0 30px rgba(255, 0, 204, 0.8),
+    0 0 60px rgba(0, 255, 255, 0.6),
+    0 0 90px rgba(51, 51, 255, 0.5);
+  background: radial-gradient(circle at 40% 40%, #00ffff, #8a2be2, #ff1493);
+}
+
+.ai-chat-icon {
+  width: 100px;       /* bigger image inside button */
+  height: 100px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+  transition: transform 0.3s ease;
+}
+
+.ai-chat-btn:hover .ai-chat-icon {
+  transform: rotate(5deg) scale(1.1);
+}

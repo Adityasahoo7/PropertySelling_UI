@@ -20,4 +20,14 @@
       <i class="bi bi-arrow-clockwise me-1"></i> Load More
     </button>
   </div>
+
+<!-- Floating Chatbot Icon -->
+<button class="ai-chat-btn" (click)="toggleChat()">
+  <img src="assets/icons/PropertyAppChatBotImage.png" alt="AI Assistant" class="ai-chat-icon" />
+</button>
+
+<!-- Chat Popup -->
+<app-chatbot *ngIf="isChatOpen"></app-chatbot>
+
+
 </div>
