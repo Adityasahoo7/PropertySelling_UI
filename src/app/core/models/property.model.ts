@@ -11,4 +11,5 @@ export interface Property {
   areaSqFt: number;
   imageUrl: string;
   createdAt?: Date;    // optional
+  imageFile:File|null;
 }

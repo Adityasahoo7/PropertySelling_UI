@@ -19,7 +19,8 @@
       bedrooms: 0,
       bathrooms: 0,
       areaSqFt: 0,
-      imageUrl: ''
+      imageUrl: '',
+      imageFile:null,
     };
 
     constructor(private propertyService: PropertyService,
@@ -29,6 +30,7 @@
     // 🖼 File Upload → Save Base64 in imageUrl
     onFileSelected(event: any) {
       const file = event.target.files[0];
+      this.property.imageFile = file;
       if (file) {
         const reader = new FileReader();
         reader.onload = (e: any) => {
@@ -64,7 +66,8 @@
             bedrooms: 0,
             bathrooms: 0,
             areaSqFt: 0,
-            imageUrl: ''
+            imageUrl: '',
+            imageFile:null
           };
         },
         error: (err) => {

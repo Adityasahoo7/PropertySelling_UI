@@ -19,7 +19,7 @@ export class PropertyService {
   private getAuthHeaders(): HttpHeaders {
     const token = localStorage.getItem('token'); 
     return new HttpHeaders({
-      'Content-Type': 'application/json',
+      //'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
   }
@@ -34,7 +34,17 @@ export class PropertyService {
   }
 
   addProperty(property: Property): Observable<Property> {
-    return this.http.post<Property>(this.propertyUrl, property, { headers: this.getAuthHeaders() });
+    const formData = new FormData();
+formData.append('ImageFile', property.imageFile as File); // must match DTO property name
+formData.append('Title', property.title);
+formData.append('Description', property.description);
+formData.append('Bedrooms', property.bedrooms.toString());
+formData.append('Bathrooms', property.bathrooms.toString());
+formData.append('AreaSqFt', property.areaSqFt.toString());
+formData.append('Location', property.location);
+formData.append('Price', property.price.toString());
+formData.append('Type', property.type);
+    return this.http.post<Property>(this.propertyUrl, formData, { headers: this.getAuthHeaders() });
   }
 
   updateProperty(id: number, property: Property): Observable<Property> {
